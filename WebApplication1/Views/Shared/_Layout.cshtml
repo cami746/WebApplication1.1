@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Startmin</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 0;
+        }
+
+        .navbar-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding-left: 15px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #f8f8f8;
+            border-right: 1px solid #e7e7e7;
+            overflow-y: auto;
+        }
+
+        .search-box {
+            padding: 10px;
+        }
+
+            .search-box input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .nav li {
+                border-bottom: 1px solid #e7e7e7;
+            }
+
+                .nav li a {
+                    display: block;
+                    padding: 10px 15px;
+                    color: #337ab7;
+                    text-decoration: none;
+                }
+
+                    .nav li a:hover {
+                        background-color: #eee;
+                    }
+
+        .nav-second-level {
+            list-style: none;
+            padding-left: 30px;
+        }
+
+        .nav-third-level {
+            list-style: none;
+            padding-left: 45px;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .active {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Startmin</a>
+        <a href="#" style="color: white; margin-left: 20px;">Website</a>
+    </nav>
+
+    <div class="sidebar">
+        <div class="search-box">
+            <input type="text" placeholder="Search..." />
+        </div>
+        <ul class="nav">
+            <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+            <li>
+                <a href="#">Charts</a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">Flot Charts</a></li>
+                    <li><a href="#">Morris.js Charts</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Tables</a></li>
+            <li><a href="#">Forms</a></li>
+            <li>
+                <a href="#">UI Elements</a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">Panels and Wells</a></li>
+                    <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">Icons</a></li>
+                    <li><a href="#">Grid</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Multi-Level Dropdown</a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">Second Level Item</a></li>
+                    <li><a href="#">Second Level Item</a></li>
+                    <li>
+                        <a href="#">Third Level</a>
+                        <ul class="nav nav-third-level">
+                            <li><a href="#">Third Level Item</a></li>
+                            <li><a href="#">Third Level Item</a></li>
+                            <li><a href="#">Third Level Item</a></li>
+                            <li><a href="#">Third Level Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Sample Pages</a>
+                <ul class="nav nav-second-level">
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Login Page</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
